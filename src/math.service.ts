@@ -16,6 +16,9 @@ export class MathService {
     }
     public accumulate(data: number[]) {
         return this.client.send<number,number[]>('add', data)
-        .subscribe(res => console.log(res));
+            .subscribe(res => {
+                console.log('success')
+                console.log('result is: '+res);
+            });
     }
 }

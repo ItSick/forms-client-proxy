@@ -24,7 +24,10 @@ let MathService = class MathService {
     }
     accumulate(data) {
         return this.client.send('add', data)
-            .subscribe(res => console.log(res));
+            .subscribe(res => {
+            console.log('success');
+            console.log('result is: ' + res);
+        });
     }
 };
 MathService = __decorate([
