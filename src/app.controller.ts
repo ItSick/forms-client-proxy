@@ -1,5 +1,5 @@
 import { Controller, Get, Logger, Post, Body } from '@nestjs/common';
-import { MathService } from './math.service';
+import { FormService } from './form.service';
 
 @Controller()
 export class AppController {
@@ -7,11 +7,11 @@ export class AppController {
   private logger = new Logger('Client Proxy AppController');
 
 
-  constructor(private readonly mathService: MathService) {}
+  constructor(private readonly formService: FormService) {}
 
-  @Post('add')
-  async accumulate(@Body('data') data: number[]) {
-    //this.logger.log('Adding '+ data.toString());
-    return this.mathService.accumulate(data);
+  @Post('form')
+  async insertForm(@Body('data') data: any) {
+    this.logger.log('insertForm client controller '+ data);
+    return this.formService.insertForm(data);
   }
 }

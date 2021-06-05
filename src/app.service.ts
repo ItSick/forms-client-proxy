@@ -18,10 +18,10 @@ export class AppService {
     });
   }
 
-  getHello(name: string): Observable<string> {
+  setForm(form: any): Observable<string> {
     const pattern = {cmd : 'forms'};
-    const data = name;
-    console.log('client service');
+    const data = form;
+    console.log('client getHello service start...');
     return this.client.send(pattern,data);
   }
 

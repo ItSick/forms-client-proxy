@@ -1,7 +1,7 @@
-import { MathService } from './math.service';
+import { FormService } from './form.service';
 export declare class AppController {
-    private readonly mathService;
+    private readonly formService;
     private logger;
-    constructor(mathService: MathService);
-    accumulate(data: number[]): Promise<import("rxjs").Subscription>;
+    constructor(formService: FormService);
+    insertForm(data: any): Promise<import("rxjs").Subscription>;
 }

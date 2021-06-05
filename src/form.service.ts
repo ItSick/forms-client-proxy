@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ClientProxyFactory, Transport, ClientProxy } from '@nestjs/microservices';
 
 @Injectable()
-export class MathService {
+export class FormService {
     private client: ClientProxy;
 
     constructor(){
@@ -14,11 +14,13 @@ export class MathService {
               },
         });
     }
-    public accumulate(data: number[]) {
-        return this.client.send<number,number[]>('add', data)
+    public insertForm(data: any) {
+        console.log('insertForm client service request');
+        return this.client.send<any,any>('form', data)
             .subscribe(res => {
+                console.log('insertForm client service response');
                 console.log('success')
-                console.log('result is: '+res);
+                console.log('result is: '+ res);
             });
     }
 }
